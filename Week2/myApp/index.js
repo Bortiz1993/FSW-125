@@ -39,10 +39,6 @@ app.get('/vehicles', (req, res) => {
     res.send(vehicles)
 })
 
-
-
-
-
 app.listen(PORT, () =>{
     console.log('Our first server Express.js has been started on port 3000')
 })
