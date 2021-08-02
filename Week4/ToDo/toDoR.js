@@ -17,6 +17,7 @@ toDoRouter.get(`/`, (req, res) => {
     res.send(toDos)
 });
 
+//Get single ToDo
  toDoRouter.get('/:toDosId', (req, res) =>{
      const toDosId = req.params.toDosId;
     const singleToDo = toDos.find(toDo => toDo._id === toDosId)
@@ -25,7 +26,7 @@ toDoRouter.get(`/`, (req, res) => {
      res.send(singleToDo);
  })
 
- .get('/search/imageURL',(req, res) => {
+ .get('/search/ToDoNum',(req, res) => {
      const toDoNUM = req.query.ToDoNum;
      const filteredToDos = toDos.filter(toDo => toDo.ToDoNum === toDoNUM)
     
