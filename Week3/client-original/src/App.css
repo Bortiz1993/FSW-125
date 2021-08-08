@@ -1,0 +1,71 @@
+html{
+  background: repeating-linear-gradient( 45deg  , black, transparent 100px);
+  background-color: darkviolet;
+  height: 100vh;
+}
+
+h1, p {
+  margin: 5px;
+  font-family: Impact;
+  
+}
+
+p {
+  font-size: 25px;
+  font-family: Impact;
+}
+
+.Bounty-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 32px;
+}
+
+.bounty-component {
+  background: yellow;
+  border: 8px double rgb(253, 6, 121);
+  padding: 10px;
+  margin: 5px;
+}
+
+form{
+  background: rgb(72, 72, 218);
+  border: 5px solid rgb(65, 31, 255);
+  padding: 10px;
+  margin: 5px;
+
+}
+
+input {
+  font-family: Impact;
+  color: crimson;
+  background: linear-gradient( 45deg , black, transparent);
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+button {
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.addBounty-btn {
+  background-color: blueviolet;
+  color: white;
+  font-family: fantasy;
+}
+.edit-btn{
+  font-size: 16px;
+  background: mediumturquoise;
+  color: green;
+}
+.delete-btn {
+  font-family: fantasy;
+  background-color: red;
+  color:black
+}

@@ -44,7 +44,7 @@ bountiesRouter.post(`/`, (req, res) => {
     newBountie._id = uuidv4();
     bounties.push(newBountie);
 
-    res.send(`Successfully added ${newBountie.FirstName} to the database`);
+    res.send(newBountie);
 })
 
 .delete('/:bountiesId', (req, res) =>{
