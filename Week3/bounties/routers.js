@@ -27,6 +27,7 @@ bountiesRouter.get(`/`, (req, res) => {
      res.send(singleBounty);
  })
 
+ //Query Get search
  .get('/search/LightSaber',(req, res) => {
      const bountiesLightSaber = req.query.LightSaber;
      const filteredLightSabers = bounties.filter(bounty => bounty.LightSaber === bountiesLightSaber)
@@ -34,8 +35,6 @@ bountiesRouter.get(`/`, (req, res) => {
      res.send(filteredLightSabers)
     console.log(re.query);
  })
-
-
 
 //post a route
 
@@ -47,6 +46,7 @@ bountiesRouter.post(`/`, (req, res) => {
     res.send(newBountie);
 })
 
+//Delete route.
 .delete('/:bountiesId', (req, res) =>{
     const bountiesId = req.params.bountiesId;
     const bountiesIndex = bounties.findIndex(bounty => bounty._id === bountiesId);
@@ -55,12 +55,14 @@ bountiesRouter.post(`/`, (req, res) => {
     res.send('Successfully deleted!')
 })
 
+//Put route.
+
 .put('/:bountiesId', (req,res) => {
     const bountiesId = req.params.bountiesId;
     const bountiesIndex = bounties.findIndex(bounty => bounty._id === bountiesId);
      Object.assign(bounties[bountiesIndex], req.body)
 
-    res.send('Successfully updated');
+    res.send(bounties[bountiesIndex]);
 })
 
 

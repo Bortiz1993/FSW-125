@@ -10,6 +10,21 @@ h1, p {
   
 }
 
+
+h2{
+  
+  font-family: fantasy;
+  color: yellow;
+  display: inline;
+  border: 1px solid yellow;
+  background-color: black;
+  padding: 5px;
+  margin:10px;
+}
+h2:hover{
+  box-shadow: red 4px 4px 4px 8px;
+}
+
 p {
   font-size: 25px;
   font-family: Impact;
@@ -35,6 +50,9 @@ form{
   padding: 10px;
   margin: 5px;
 
+}
+form:hover{
+  box-shadow: hsl(268, 100%, 58%) 8px 4px 4px 8px;
 }
 
 input {

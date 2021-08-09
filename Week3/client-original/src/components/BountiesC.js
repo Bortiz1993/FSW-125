@@ -35,7 +35,10 @@ const [editToggle, setEditToggle] = useState(false)
             Type={Type}
             _id={_id}
             btnText='Submit Edit'
-            submit ={editBounty}/>
+            submit ={(inputs, id) => {
+                editBounty(inputs, id)
+                setEditToggle(prevToggle => !prevToggle)
+            }}/>
             <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Close</button>
            </> 
         }
