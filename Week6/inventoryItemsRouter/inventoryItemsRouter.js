@@ -1,6 +1,6 @@
 const express = require('express');
 const inventoryItemsRouter = express.Router();
-const  {v4: uuidv4 } = require('uuid');
+//const  {v4: uuidv4 } = require('uuid');
 
 const inventoryItems = [
     {
@@ -38,10 +38,37 @@ const inventoryItems = [
     }
 ]
 
+//Get all route
+inventoryItemsRouter.get(`/`, (req, res) => {
+    res.send(inventoryItems)
+});
 
+//Get Queries.
 
+inventoryItemsRouter.get('/search/name',(req, res) => {
+    const inventoryName = req.query.name;
+    const filteredName = inventoryItems.filter(inventoryItems => inventoryItems.name === inventoryName)
+   
+    res.send(filteredName)
+   console.log(re.query);
+});
 
+inventoryItemsRouter.get('/search/type',(req, res) => {
+    const inventoryType = req.query.type;
+    const filteredType = inventoryItems.filter(inventoryItems => inventoryItems.type === inventoryType)
+   
+    res.send(filteredType)
+   console.log(re.query);
+});
 
+inventoryItemsRouter.get('/search/price',(req, res) => {
+    const inventoryPrice = req.query.price;
+    const parsePrice = Number(inventoryPrice)
+    const filteredPrice = inventoryItems.filter(inventoryItems => inventoryItems.price === parsePrice)
+   
+    res.send(filteredPrice)
+   console.log(re.query);
+});
 
 
 
