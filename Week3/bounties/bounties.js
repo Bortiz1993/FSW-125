@@ -10,7 +10,15 @@ const PORT = 9000
 app.use(express.json())
 app.use(morgan('dev'))
 
+//routers
 app.use('/bounties', bountiesRouter)
+
+//error handling
+app.use((err, req, res, next) => {
+    console.log(err)
+    return res.send({errMsg: err.message})
+})
+
 
 
 //Server message

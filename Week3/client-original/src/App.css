@@ -1,12 +1,17 @@
 html{
-  background: repeating-linear-gradient( 45deg  , black, transparent 100px);
-  background-color: darkviolet;
-  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(5, 119, 128, 0.5)), url("./images/star-wars-ship-hub.jpg");
+    height: 100vh;
+    background-size: contain;
+    background-position: center;
+    
+
+  
 }
 
 h1, p {
   margin: 5px;
   font-family: Impact;
+  color:darkorange;
   
 }
 
@@ -38,11 +43,18 @@ p {
 }
 
 .bounty-component {
-  background: yellow;
-  border: 8px double rgb(253, 6, 121);
+  display: inline-flex;
+  background: none;
+  border: 8px double #fd6106;
   padding: 10px;
   margin: 5px;
+
 }
+
+.bounty-component:hover{
+  box-shadow: rgb(235, 94, 12) 8px 4px 4px 8px ;
+}
+
 
 form{
   background: rgb(72, 72, 218);
@@ -52,7 +64,7 @@ form{
 
 }
 form:hover{
-  box-shadow: hsl(268, 100%, 58%) 8px 4px 4px 8px;
+  box-shadow: hsl(268, 100%, 58%) 8px 4px 8px 8px;
 }
 
 input {
