@@ -51,17 +51,13 @@ inventoryItemsRouter.get('/search/name',(req, res) => {
    
     res.send(filteredName)
    console.log(re.query);
-});
-
-inventoryItemsRouter.get('/search/type',(req, res) => {
+}).get('/search/type',(req, res) => {
     const inventoryType = req.query.type;
     const filteredType = inventoryItems.filter(inventoryItems => inventoryItems.type === inventoryType)
    
     res.send(filteredType)
    console.log(re.query);
-});
-
-inventoryItemsRouter.get('/search/price',(req, res) => {
+}).get('/search/price',(req, res) => {
     const inventoryPrice = req.query.price;
     const parsePrice = Number(inventoryPrice)
     const filteredPrice = inventoryItems.filter(inventoryItems => inventoryItems.price === parsePrice)

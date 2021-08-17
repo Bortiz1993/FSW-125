@@ -1,11 +1,10 @@
 html{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(5, 119, 128, 0.5)), url("./images/star-wars-ship-hub.jpg");
-    height: 100vh;
+    height: auto;
     background-size: contain;
     background-position: center;
-    
-
-  
+    background-size:cover;
+     
 }
 
 h1, p {
@@ -14,7 +13,6 @@ h1, p {
   color:darkorange;
   
 }
-
 
 h2{
   

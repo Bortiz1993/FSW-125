@@ -3,7 +3,9 @@ const bountiesRouter = express.Router();
 const  {v4: uuidv4 } = require('uuid');
 
 const bounties = [
-    {FirstName: 'Ray', 
+
+    {
+     FirstName: 'Ray', 
      LastName: 'SkyWalker',
      LightSaber: 'Green',
      Living: true,
@@ -22,6 +24,8 @@ bountiesRouter.get(`/`, (req, res) => {
  bountiesRouter.get('/:bountiesId', (req, res) =>{
      const bountiesId = req.params.bountiesId;
     const singleBounty = bounties.find(bounty => bounty._id === bountiesId)
+
+    ///do same 
     
     if (!singleBounty) {
         const error = new Error('This item was not found');
@@ -35,6 +39,11 @@ bountiesRouter.get(`/`, (req, res) => {
  .get('/search/LightSaber',(req, res) => {
      const bountiesLightSaber = req.query.LightSaber;
      const filteredLightSabers = bounties.filter(bounty => bounty.LightSaber === bountiesLightSaber)
+
+     if (!filteredLightSabers) {
+        const error = new Error('This item was not found');
+        return res.status(404).next(error);
+    }
     
     res.status(200).send(filteredLightSabers)
     console.log(re.query);
@@ -47,6 +56,11 @@ bountiesRouter.post(`/`, (req, res) => {
     newBountie._id = uuidv4();
     bounties.push(newBountie);
 
+    if (!newBountie) {
+        const error = new Error('This item was not found');
+        return res.status(404).next(error);
+    }
+
    res.status(201).send(newBountie);
 })
 
@@ -56,6 +70,10 @@ bountiesRouter.post(`/`, (req, res) => {
     const bountiesIndex = bounties.findIndex(bounty => bounty._id === bountiesId);
     bounties.splice(bountiesIndex, 1);
 
+    if (!bountiesIndex) {
+        const error = new Error('This item was not found');
+        return res.status(404).next(error);
+    }
     res.status(201).send('Successfully deleted!')
 })
 
@@ -65,6 +83,11 @@ bountiesRouter.post(`/`, (req, res) => {
     const bountiesId = req.params.bountiesId;
     const bountiesIndex = bounties.findIndex(bounty => bounty._id === bountiesId);
      Object.assign(bounties[bountiesIndex], req.body)
+
+     if (!bounties[bountiesIndex]) {
+        const error = new Error('This item was not found');
+        return res.status(404).next(error);
+    }
 
    res.status(201).send(bounties[bountiesIndex]);
 })
