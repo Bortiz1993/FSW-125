@@ -2,7 +2,7 @@ const express = require('express');
 const bountiesRouter = express.Router();
 const  {v4: uuidv4 } = require('uuid');
 
-const bounties = [
+ const bounties = [
 
     {
      FirstName: 'Ray', 
@@ -10,9 +10,18 @@ const bounties = [
      LightSaber: 'Green',
      Living: true,
      BAmount: 100,
-     Type: 'Jedi',
+    Type: "Jedi",
      _id: uuidv4()
 },
+{
+    FirstName: 'Luke', 
+    LastName: 'SkyWalker',
+    LightSaber: 'Yellow',
+    Living: true,
+    BAmount: 150,
+   Type: "Jedi",
+    _id: uuidv4()
+}
 
 ];
 

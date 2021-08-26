@@ -9,13 +9,17 @@ function App() {
 
   //declaring state, [basically placeholders for a variable, a function and a default value
   const [bounties, setBounties] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("")
 
 //axios get.
   const getBounty = () => {
     axios.get('/bounties')
     .then(res => setBounties(res.data))
+  
     .catch(err => console.log(err.response.data.errMsg))
+  
   };
+
 
 //axios post.
   const submitBounty = (newBounty) => {
@@ -51,8 +55,9 @@ const editBounty = (updates, bountyId) => {
   },  []);
 
   //used map to iterate through the array and pass it down to the BountiesC component, copy array to new one with the spread operator.
-
 const bountiesList = bounties.map(bounty => <BountiesC {...bounty} 
+
+
 
 //pass down props, is the same as passing down data to child components.
 deleteBounty={deleteBounty} 
@@ -74,9 +79,26 @@ Type={bounty.Type}
     btnText='Add Bounty' 
     submit={submitBounty}/>
     {bountiesList}
+
+    <input type="search" placeholder="search" onChange={event => {setSearchTerm(event.target.value)}}/>
+  {bounties.filter((val) => {
+    if (searchTerm === ""){
+      return val
+    } else if (val.FirstName.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+
+    }
+    else if (val.LastName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())){
+
+    }
+  }).map((val, key) => {
+    return <div className="user" key={key}>
+    <p>{val.FirstName} {val.LastName}</p></div>
+  })}
+
     
     </div>
   );
+ 
 }
 
 export default App;

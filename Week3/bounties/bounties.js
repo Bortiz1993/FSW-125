@@ -16,7 +16,7 @@ app.use('/bounties', bountiesRouter)
 //error handling
 app.use((err, req, res, next) => {
     console.log(err)
-    return res.send({errMsg: err.message})
+    return res.status(500).next({errMsg: err.message})
 })
 
 

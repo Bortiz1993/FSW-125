@@ -39,6 +39,7 @@ const [editToggle, setEditToggle] = useState(false)
                 editBounty(inputs, id)
                 setEditToggle(prevToggle => !prevToggle)
             }}/>
+        
             <button onClick={() => setEditToggle(prevToggle => !prevToggle)}>Close</button>
            </> 
         }
