@@ -20,6 +20,8 @@ function App() {
   
   };
 
+//another get request for /bounties/lightsaber endpoint, received a parameter: value of the input as a params
+//get request/ setState, get request and if statement to check for erros.
 
 //axios post.
   const submitBounty = (newBounty) => {
@@ -82,17 +84,24 @@ Type={bounty.Type}
 
     <input type="search" placeholder="search" onChange={event => {setSearchTerm(event.target.value)}}/>
   {bounties.filter((val) => {
-    if (searchTerm === ""){
-      return val
-    } else if (val.FirstName.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+    if (searchTerm === val.FirstName){
+      return val.FirstName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
+    } else if (val) {
 
     }
-    else if (val.LastName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())){
-
-    }
+  
   }).map((val, key) => {
     return <div className="user" key={key}>
-    <p>{val.FirstName} {val.LastName}</p></div>
+    <p>First Name: {val.FirstName}<br/> 
+    LastName: {val.LastName}<br/>
+    LightSaber: {val.LightSaber}<br/>
+    Living: {val.Living}<br/>
+    BAmount: {val.BAmount}<br/>
+    Type: {val.Type}<br/>
+    Item: {val.Item[0].money}
+    
+  
+    </p></div>
   })}
 
     

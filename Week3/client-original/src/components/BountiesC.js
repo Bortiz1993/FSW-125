@@ -2,7 +2,7 @@
  import BountiesFormHandler from './Bounties-Form';
 
 
-function BountiesC ({ editBounty, deleteBounty, FirstName, LastName, LightSaber, Living,  BAmount, Type, _id}) {
+function BountiesC ({ editBounty, deleteBounty, FirstName, LastName, LightSaber, Living, Item,  BAmount, Type, _id}) {
 //console.log(props);
 
 const [editToggle, setEditToggle] = useState(false)
@@ -16,7 +16,9 @@ const [editToggle, setEditToggle] = useState(false)
                 LightSaber: {LightSaber}<br/>
                 Living: {Living}<br/>
                 BAmount: { BAmount}<br/>
-                Type:{Type}</p>
+                Type:{Type}<br/>
+                Item:{Item[0].money}
+                </p>
                 <button 
                 onClick={ () => deleteBounty(_id)} 
                 className='delete-btn'>delete</button>

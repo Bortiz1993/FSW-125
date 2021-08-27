@@ -97,3 +97,7 @@ button {
   background-color: red;
   color:black
 }
+
+.user{
+  border: solid 3px red;
+}

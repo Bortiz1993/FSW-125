@@ -11,7 +11,12 @@ const  {v4: uuidv4 } = require('uuid');
      Living: true,
      BAmount: 100,
     Type: "Jedi",
-     _id: uuidv4()
+     _id: uuidv4(),
+    Item: [
+        {
+            money: "Gold"
+        }
+    ]
 },
 {
     FirstName: 'Luke', 
@@ -20,7 +25,12 @@ const  {v4: uuidv4 } = require('uuid');
     Living: true,
     BAmount: 150,
    Type: "Jedi",
-    _id: uuidv4()
+    _id: uuidv4(),
+    Item: [
+        {
+            money: "Dollars"
+        }
+    ]
 }
 
 ];
