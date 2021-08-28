@@ -34,6 +34,9 @@ axios.post('/bounties', newBounty)
 
   //axios delete.
 const deleteBounty = (bountyId) => {
+
+  console.log('bountyId: ', bountyId)
+
   axios.delete(`/bounties/${bountyId}`)
   .then(res => 
     setBounties(prevBounties => prevBounties.filter(bounty => bounty._id !== bountyId)))
@@ -87,7 +90,7 @@ Type={bounty.Type}
   {bounties.filter((val) => {
     if (searchTerm === val.FirstName){
       return val.FirstName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
-    } else if (console.log(val.FirstName)) {
+    } else if (val) {
 
     }
   
