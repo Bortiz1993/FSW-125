@@ -17,7 +17,6 @@ const [editToggle, setEditToggle] = useState(false)
                 Living: {Living}<br/>
                 BAmount: { BAmount}<br/>
                 Type:{Type}<br/>
-                Item:{Item[0].money}
                 </p>
                 <button 
                 onClick={ () => deleteBounty(_id)} 

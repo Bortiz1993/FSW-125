@@ -1,6 +1,7 @@
 const express = require('express');
 const bountiesRouter = express.Router();
-const  {v4: uuidv4 } = require('uuid');
+//const  {v4: uuidv4 } = require('uuid');
+const  {v4: uuid } = require('uuid');
 
  const bounties = [
 
@@ -11,7 +12,7 @@ const  {v4: uuidv4 } = require('uuid');
      Living: true,
      BAmount: 100,
     Type: "Jedi",
-     _id: uuidv4(),
+     _id: uuid(),
     Item: [
         {
             money: "Gold"
@@ -22,10 +23,10 @@ const  {v4: uuidv4 } = require('uuid');
     FirstName: 'Luke', 
     LastName: 'SkyWalker',
     LightSaber: 'Yellow',
-    Living: true,
+    Living: false,
     BAmount: 150,
    Type: "Jedi",
-    _id: uuidv4(),
+    _id: uuid(),
     Item: [
         {
             money: "Dollars"
@@ -36,7 +37,7 @@ const  {v4: uuidv4 } = require('uuid');
 ];
 
 //Get all route
-bountiesRouter.get(`/`, (req, res) => {
+bountiesRouter.get('/', (req, res) => {
     res.status(200).send(bounties)
 });
 
@@ -70,10 +71,16 @@ bountiesRouter.get(`/`, (req, res) => {
 
 //post a route
 
-bountiesRouter.post(`/`, (req, res) => {
+bountiesRouter.post('/', (req, res) => {
     const newBountie = req.body;
-    newBountie._id = uuidv4();
+    newBountie._id = uuid();
+
+    console.log('bountyId: ', bounties._id)
+
     bounties.push(newBountie);
+    
+
+    
 
     if (!newBountie) {
         const error = new Error('This item was not found');

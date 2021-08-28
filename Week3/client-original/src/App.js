@@ -7,7 +7,7 @@ import BountiesFormHandler from './components/Bounties-Form';
 
 function App() {
 
-  //declaring state, [basically placeholders for a variable, a function and a default value
+  //declaring state, [basically placeholders for a variable, a function and a default value. Also a new useState for the search input.
   const [bounties, setBounties] = useState([]);
   const [searchTerm, setSearchTerm] = useState("")
 
@@ -82,11 +82,12 @@ Type={bounty.Type}
     submit={submitBounty}/>
     {bountiesList}
 
+{/* search input for a bounty by accessing the first name */}
     <input type="search" placeholder="search" onChange={event => {setSearchTerm(event.target.value)}}/>
   {bounties.filter((val) => {
     if (searchTerm === val.FirstName){
       return val.FirstName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())
-    } else if (val) {
+    } else if (console.log(val.FirstName)) {
 
     }
   
